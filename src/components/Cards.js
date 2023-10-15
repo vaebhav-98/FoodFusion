@@ -30,7 +30,7 @@ const Cards = ({ id, name, price, desc, rating, img }) => {
                             // handleToast(name)
                         )
                     }
-                    className=" p-1 text-white bg-green-500 hover:bg-green-700 rounded-lg text-sm"
+                    className="px-2 py-1 text-white bg-green-500 hover:bg-green-700 rounded text-sm"
                 >
                     Add To Cart
                 </button>
