@@ -3,6 +3,7 @@ import FoodItems from '../components/FoodItems'
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineDelete, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { decerementQty, incrementQty, removeFromCart } from '../features/CardSlice';
+import Cart from '../components/Cart';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -12,7 +13,9 @@ const Home = () => {
         <div>
 
             <FoodItems />
-            {
+            <Cart/>
+            
+           {/*  {
                 cartItems.length > 0 && <h2>
                 CartItems
             </h2>
@@ -53,7 +56,7 @@ const Home = () => {
                         </div>
                     </div>)
                 })
-            }
+            } */}
 
         </div>
     )

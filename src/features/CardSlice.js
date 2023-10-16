@@ -24,7 +24,11 @@ const cartSlice = createSlice({
             state.cart = state.cart.filter((item) => item.id !== action.payload.id);
         },
         incrementQty: (state, action) => {
-
+            state.cart = state.cart.map((item) =>
+                item.id === action.payload.id
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
+            );
         },
         decerementQty: (state, action) => {
             state.cart = state.cart.map((item) =>
