@@ -43,7 +43,7 @@ const Cards = ({ id, name, price, desc, rating, img }) => {
                     )
                 }
                  ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+                            fill="currentColor" className="bi bi-bag-plus" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
                                 d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
                             <path

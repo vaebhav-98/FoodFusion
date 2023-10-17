@@ -1,63 +1,28 @@
 import React from 'react'
 import FoodItems from '../components/FoodItems'
 import { useDispatch, useSelector } from 'react-redux';
-import { AiOutlineDelete, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-import { decerementQty, incrementQty, removeFromCart } from '../features/CardSlice';
 import Cart from '../components/Cart';
+import FoodMenu from '../components/FoodMenu';
+import FoodSearch from '../components/FoodSearch';
 
 const Home = () => {
-    const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cart);
     cartItems.length > 0 ? (console.log(cartItems)) : console.log(cartItems)
     return (
         <div>
-
-            <FoodItems />
-            <Cart/>
-            
-           {/*  {
-                cartItems.length > 0 && <h2>
-                CartItems
+            <h2 className="text-xl font-bold text-gray-900 sm:text-3xl text-center mt-8">
+                Taste Fusion
             </h2>
-            }
-            {
-                cartItems.map((item) => {
-                    let id = item.id; let img = item.img; let name = item.name; let quantity = item.quantity; let price = item.price
-                    return (<div className=" gap-2 flex shadow-md rounded-lg p-2 m-4">
-                        <AiOutlineDelete
-                            onClick={() => {
-                                dispatch(removeFromCart({ id, img, name, price, quantity }));
-                                // toast.error(`${name} Removed`);
-                            }}
-                            className=" absolute right-7 border bg-white hover:bg-gray-400 scale-120 cursor-pointer"
-                        />
-                        <img src={img} alt="" className="w-[50px] h-[50px]" height= {100} width={100} />
-                        <div className=" leading-5 ">
-                            <h2 className=" font-bold text-gray-950">{name}</h2>
-                            <div className=" flex justify-between">
-                                <span className=" text-green-500 font-bold">
-                                    <span className=" text-black ">₹</span>
-                                    {price}
-                                </span>
-                                <div className=" flex justify-between absolute right-7 gap-2">
-                                    <AiOutlinePlus
-                                        onClick={() => dispatch(incrementQty({ id }))}
-                                        className=" border-2 border-gray-200 hover:bg-green-500 rounded-md p-1 transition-all ease-linear cursor-pointer scale-140 text-xl smooth"
-                                    />
-                                    <span>{quantity}</span>
-                                    <AiOutlineMinus
-                                        onClick={() =>
-                                            quantity > 1 ? dispatch(decerementQty({ id })) : (quantity = 1)
-                                        }
-                                        className=" border-2 border-gray-200 hover:bg-red-500 rounded-md p-1 transition-all ease-linear cursor-pointer scale-140 text-xl smooth"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>)
-                })
-            } */}
 
+            <p className="max-w-md mx-auto mt-4 text-gray-500 text-center">
+                The ultimate destination for culinary enthusiasts. <strong>Taste Fusion</strong> is the result of our passion for food and our commitment to providing you with an exceptional dining experience.
+            </p>
+
+            <h1 class="text-4xl font-bold tracking-tight text-gray-900 max-w-7xl mx-auto px-6 lg:px-8 mt-8">Discover our menu</h1>
+            <FoodSearch/>
+            {/* <FoodMenu /> */}
+            <FoodItems />
+            <Cart />
         </div>
     )
 }
