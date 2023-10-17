@@ -7,23 +7,24 @@ const Cards = ({ id, name, price, desc, rating, img }) => {
     const dispatch = useDispatch();
 
     return (
-     <article className="font-bold w-[250px] py-6 mx-6 flex flex-col gap-2 rounded-xl bg-white p-3 shadow-lg hover:shadow-xl border">
+     <article className="font-bold flex flex-col gap-2 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl border ease-in-out">
             <img
                 src={img}
                 alt=""
-                className="cursor-grab hover:scale-110 w-auto h-[130px] transition-all duration-300 ease-in-out"
+                className="cursor-grab w-auto h-40 transition-all duration-300 ease-in-out rounded-t-xl"
             />
+            <div className='px-4 py-3'>
             <div className="text-sm justify-between flex">
-                <h2 className='text-slate-700'>{name}</h2>
-                <span className="text-lg font-bold text-red-500">₹{price}</span>
+                <h2 className='text-slate-700 max-h-12'>{name}</h2>
+                <span className="text-lg font-semibold text-red-500 cursor-auto">₹{price}</span>
             </div> 
-            <p className="text-slate-700 mt-1 text-sm font-normal line-clamp-3">{desc}..</p>
-            <div className=" flex justify-between">
+            <p className="text-slate-700 mt-1 text-sm font-normal h-20">{desc}..</p>
+            <div className="flex justify-between">
                 <span className="flex justify-center items-center">
                     <AiFillStar className=" mr-1 text-yellow-400" />
                     {rating}
                 </span>
-                <button
+                {/* <button
                     onClick={() =>
                         dispatch(
                             addToCart({ id, name, price, rating, img, quantity: 1 }),
@@ -33,7 +34,22 @@ const Cards = ({ id, name, price, desc, rating, img }) => {
                     className="px-2 py-1 text-white bg-green-500 hover:bg-green-700 rounded text-sm"
                 >
                     Add To Cart
-                </button>
+                </button> */}
+                 <div className="ml-auto cursor-pointer"
+                  onClick={() =>
+                    dispatch(
+                        addToCart({ id, name, price, rating, img, quantity: 1 }),
+                        // handleToast(name)
+                    )
+                }
+                 ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+                            <path
+                                d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                        </svg></div>
+            </div>
             </div>
         </article> 
       
